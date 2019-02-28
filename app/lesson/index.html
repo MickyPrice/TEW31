@@ -20,13 +20,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- Global CSS sheet - Full of responsive code, styling and all that good stuff -->
   <link rel="stylesheet" href="../../assets/css/global.css">
+  <link rel="stylesheet" href="../../assets/css/lesson.css">
 
 
 
 
 
 </head>
-<body>
+<body class="bg-grey-lighter">
 
   <nav id="navbar" class="flex items-center justify-between flex-wrap bg-blue-darkest p-6">
     <div class="flex items-center flex-no-shrink text-white mr-6">
@@ -57,9 +58,9 @@
 
 
   <!-- Header of site -->
-  <header class="bg-circuit shadow-lg">
+  <header class="shadow-lg bg-center bg-no-repeat bg-cover bg-fixed" app-identifier="header">
     <!-- Div provides gradient -->
-    <div class="py-32 px-4 sm:px-12 md:px-32 text-center sm:text-left" style="background-image:linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0))">
+    <div class="py-32 px-4 sm:px-12 md:px-32 text-center sm:text-left" style="background-color:rgba(0,0,0,0.6)">
       <h1 class="font-extrabold text-5xl text-white">JavaScript Basics</h1>
       <h2 app-identifier="title" class="font-thin text-3xl text-white">loading...</h2>
     </div>
@@ -69,16 +70,29 @@
 
 
 
+  <div class="block lg:flex mx-auto w-full lg:w-5/6 px-4 lg:px-0 mt-12">
+
+
+    <div class="lg:mx-2 w-full lg:w-3/5" app-identifier="lessonContent">
+
+    </div>
+
+    <div class="lg:mx-2 bg-white shadow-lg rounded px-4 py-5 lg:w-2/5 mt-6 lg:mt-0">
+      <span class="block text-xl">Your Notes</span>
+    </div>
 
 
 
+  </div>
 
 
 
-
-
-
-
+  <a app-identifier="prev" class="fixed pin-l text-center pt-6 shadow-lg w-16 h-16 text-white no-underline rounded-full bg-green pin-b mb-8 ml-4" href="#">
+    <i class="fas fa-chevron-left fa-fw fa-lg"></i>
+  </a>
+  <a app-identifier="next" class="fixed pin-r text-center pt-6 shadow-lg w-16 h-16 text-white no-underline rounded-full bg-green pin-b mb-8 mr-4" href="#">
+    <i class="fas fa-chevron-right fa-fw fa-lg"></i>
+  </a>
 
 
 
@@ -102,7 +116,10 @@
 
   <!-- App script -->
   <script src="../../assets/js/app.js"></script>
-
+  <script type="text/javascript">
+  window.addEventListener("load", loadLesson(window.location.hash.replace("#/", "")));
+  window.addEventListener("hashchange", loadLesson(window.location.hash.replace("#/", "")));
+  </script>
   <!-- Home script -->
 
 
