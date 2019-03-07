@@ -78,7 +78,17 @@
     </div>
 
     <div class="lg:mx-2 bg-white shadow-lg rounded px-4 py-5 lg:w-2/5 mt-6 lg:mt-0">
-      <span class="block text-xl">Your Notes</span>
+      <span class="block text-xl mb-6">Your Notes</span>
+
+      <div app-identifier="lessonNotes" class="px-4">
+
+        <!-- This is where notes will show up -->
+        <i app-identifier="lessonNotes-loading" class="text-3xl fas fa-spinner fa-spin"></i>
+
+        <button app-identifier="lessonNotes-add" class="block w-full rounded mt-8 text-white bg-blue-dark border-b-2 border-blue-darker text-white text-center py-4">Add new note</button>
+
+      </div>
+
     </div>
 
 
@@ -112,13 +122,45 @@
   </footer>
 
 
+
+
+  <!-- Here's the modal for adding a new note -->
+  <div class="fixed pin z-50 px-4" style="background-color:rgba(12, 34, 56, 0.8)">
+    <div class="bg-white mx-auto px-4 py-4 mt-8 w-full sm:w-3/4 md:w-1/2 rounded shadow">
+      <h1 class="text-grey-darkest font-thin">Add a new note</h1>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
   <!-- Scripts -->
+
+  <!-- Firebase app -->
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
+
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-storage.js"></script>
+  <!-- Firebase.js contains all the calls to the database and auth -->
+  <script src="../../assets/js/Firebase.js" charset="utf-8"></script>
+
+
+
+
+
 
   <!-- App script -->
   <script src="../../assets/js/app.js"></script>
   <script type="text/javascript">
   window.addEventListener("load", loadLesson(window.location.hash.replace("#/", "")));
-  window.addEventListener("hashchange", loadLesson(window.location.hash.replace("#/", "")));
+  // window.addEventListener("hashchange", location.reload());
   </script>
   <!-- Home script -->
 
