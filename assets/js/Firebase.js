@@ -25,6 +25,12 @@ firebase.auth().onAuthStateChanged(function(user) {
       if (snap.exists() === true) {
         // if the response says that notes exist in the database
         findIdentifier('lessonNotes-loading').style.display = 'none'
+        findIdentifier('lessonNotes-error').classList.add('hidden')
+      }else {
+        // If no notes are found in the database
+        findIdentifier('lessonNotes-loading').style.display = 'none';
+        findIdentifier('lessonNotes-error').classList.remove('hidden')
+
       }
     })
 
@@ -81,3 +87,36 @@ function signIn(email, password) {
     alert(error.message)
   });
 }
+
+
+
+
+
+
+
+
+
+// Create new note
+findIdentifier('create-new-note-submit').addEventListener('click', function() {
+  // Create an object containing the note's information
+  var note = {}
+  note.title = findIdentifier('create-new-note-name').value;
+  note.content = findIdentifier('create-new-note-content').value;
+  note.timestamp = Number(new Date());
+  console.log(`Crated note: ${JSON.stringify(note)}`);
+  // Make sure the user has inputted the information
+  if (note.title !== "" && note.content !== "") {
+    // Create a new database key
+    var newPostKey = firebase.database().ref().child(`/notes/${currentUser.uid}`).push().key;
+    // Write to database
+    firebase.database().ref(`/notes/${currentUser.uid}/${newPostKey}`).set({
+      title: note.title,
+      content: note.content,
+      timestamp: note.timestamp
+    });
+  }else {
+    // Display an error if nothing was inputted
+    findIdentifier('create-new-note-error').innerText = "Please fill out each section";
+  }
+
+})
