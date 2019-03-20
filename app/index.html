@@ -86,10 +86,19 @@
 
   <!-- Scripts -->
 
-  <!-- App script -->
-  <script src="../assets/js/app.js"></script>
+  <!-- Firebase app -->
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
 
-  <!-- Home script -->
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-storage.js"></script>
+  <!-- Firebase.js contains all the calls to the database and auth -->
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/Firebase.js" charset="utf-8"></script>
+  <script src="../../assets/js/appLand.js" charset="utf-8"></script>
+
 
 
 </body>
