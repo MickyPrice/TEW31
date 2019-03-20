@@ -23,6 +23,22 @@ function loadLesson(lessonID) {
       findIdentifier("title").innerText = data.title;
       findIdentifier("header").style.backgroundImage = `url("${data.image}")`;
 
+      if (data.next !== null) {
+        findIdentifier('next').href = `#${data.next}`;
+        findIdentifier('next').classList.remove('hidden')
+        findIdentifier('next').style.display = "block"
+      }else {
+        findIdentifier('next').style.display = "none"
+      }
+      if (data.prev !== null) {
+        findIdentifier('prev').href = `#${data.prev}`;
+        findIdentifier('prev').classList.remove('hidden')
+        console.log("Show");
+        findIdentifier('prev').style.display = "block"
+      }else {
+        findIdentifier('prev').style.display = "none"
+      }
+
       getHTMLFile(`/app/lessons/${lessonID}/content.html`, data => {
         if (data !== "404") {
           findIdentifier('lessonContent').innerHTML = data;
