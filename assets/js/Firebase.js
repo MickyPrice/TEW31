@@ -33,7 +33,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 
-
 function signIn(email, password) {
   firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
     // Errors

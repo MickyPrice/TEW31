@@ -23,6 +23,13 @@ function loadLesson(lessonID) {
       findIdentifier("title").innerText = data.title;
       findIdentifier("header").style.backgroundImage = `url("${data.image}")`;
 
+      document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
+      });
+
+
       if (data.next !== null) {
         findIdentifier('next').href = `#${data.next}`;
         findIdentifier('next').classList.remove('hidden')
@@ -33,7 +40,6 @@ function loadLesson(lessonID) {
       if (data.prev !== null) {
         findIdentifier('prev').href = `#${data.prev}`;
         findIdentifier('prev').classList.remove('hidden')
-        console.log("Show");
         findIdentifier('prev').style.display = "block"
       }else {
         findIdentifier('prev').style.display = "none"

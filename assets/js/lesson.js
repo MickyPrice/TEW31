@@ -21,7 +21,6 @@ firebase.auth().onAuthStateChanged(function(user) {
       // Remove it from the page.
       createCardElement(snap.key, snap.val().title, snap.val().content, snap.val().timestamp)
     })
-
     // When a note is deleted from the database
     firebase.database().ref(`/notes/${currentUser.uid}/`).on('child_removed', snap => {
       // Remove it from the page.
@@ -33,15 +32,18 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
-
-
-
+// Add the card element to the page
 function createCardElement(id, title, content, date) {
+  // Create the element that will hold the text
   var element = document.createElement('div')
+  // Add all the classes
   element.setAttribute('class', 'shadow-md rounded p-4 bg-green-lightest mb-4');
-  element.setAttribute('id', id)
+  // Add the id so that it can be called apon later
+  element.setAttribute('id', id);
+  // Set the innerHTML
   var data = `<button class="text-red float-right" onclick="deleteNote('${id}')"><i class="fas fa-2x fa-times"></i></button><h1>${title}</h1><p>${content}</p>`
-  element.innerHTML = data
+  element.innerHTML = data;
+  // Add the element to the page
   findIdentifier('lessonNotes').prepend(element)
 }
 
