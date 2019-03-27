@@ -35,9 +35,11 @@
 
 
 
-/* code{
+code{
+  display:block;
   background-color:#1a1a1a;
-  color:pink;
+  color:limeGreen;
+  white-space: pre;
   border-radius: 3px;
-  padding:0.5px 5px;
-} */
+  padding:0.5px 3px;
+}
