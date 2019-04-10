@@ -1,0 +1,48 @@
+<h1>What is the DOM?</h1>
+<p>
+  DOM stands for Document Object Model.<br>
+  The DOM is the page the user sees, it's the HTML code.<br>
+  When you view a site, you're looking at the document. Everything inside the document is a bunch of objects.<br>
+</p>
+
+<img src="/assets/img/lessonImages/GS6/DOM.svg" alt="">
+
+
+<h1>Why would I want to edit the DOM?</h1>
+<p>
+  Editing the DOM is one of the most common uses for JavaScript,
+  it lets you make cool animations, show important data,
+  drag and drop stuff, dropdowns and much more!<br>
+  To get an element, you have a few options.
+</p>
+
+<h2>How do I edit DOM?</h2>
+<p>
+  The document is stored as one large object simply named "document".<br>
+  If you do <code>console.log(document)</code> you can see the entire DOM.<br><br>
+
+  You probably don't want the entire DOM, there's a few common functions used involving the DOM.<br>
+  The first is <b>Getting IDs</b>. Say you have a HTML element with the id "username" and you want to set the innerText of it to my name (Michael Price).
+
+  <br>
+  To do this, you'd type
+  <code>
+  document.getElementById('username').innerText = "Michael Price";
+  </code>
+</p>
+
+<p>
+  Another option is to get an list of elements with a <b>certain class</b>.
+  Say you have 3 elements with the class "blue" and you want to set the background color of these to blue.<br>
+  To do this, you'd use the <code>document.getElementsByClassName()</code> function.<br>
+  Since it's an object, you can't directly set values to it, you'd need to use a for loop because it's essentially an array.
+
+  <br>
+  To do this, you'd type
+  <code>
+    for (var i = 0; i < document.getElementByClassName('blue').length; i++) {
+      document.getElementByClassName('blue')[i].style.backgroundColor = "blue";
+    }
+  </code>
+
+</p>
