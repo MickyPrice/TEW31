@@ -5,7 +5,7 @@
   When you view a site, you're looking at the document. Everything inside the document is a bunch of objects.<br>
 </p>
 
-<img src="/assets/img/lessonImages/GS6/DOM.svg" alt="">
+<img draggable="false" src="/assets/img/lessonImages/GS6/DOM.svg" alt="">
 
 
 <h1>Why would I want to edit the DOM?</h1>
@@ -44,5 +44,8 @@
       document.getElementByClassName('blue')[i].style.backgroundColor = "blue";
     }
   </code>
+  The code above basically sets a variable (i) to 0, it then repeats every time the length of the class array (document.getElementByClassName('blue')) is more than (i).<br>
+  Every time it loops, it adds 1 to (i) until (i) is equal to the number of classes.<br>
+  For each class, it will get the style.backgroundColor to "blue".
 
 </p>
