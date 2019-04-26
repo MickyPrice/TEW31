@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dice roller example</title>
+  </head>
+  <body>
+
+    <div>
+
+      <input type="number" id="max" value="6" placeholder="Max dice number">
+      <br>
+      <span>
+        Your dice rolled:
+        <span id="output"></span>
+      </span>
+
+      <br>
+      <button onclick="roll()">Roll dice</button>
+
+
+    </div>
+
+
+    <script type="text/javascript">
+      function roll() {
+        var max = document.getElementById('max').value;
+        if (max) {
+          var generatedNumber = Math.floor(Math.random() * max);
+          document.getElementById('output').innerText = generatedNumber;
+        }else {
+          // This is where you could tell the user the error.
+          // For this example, I'll just do nothing.
+
+          // It's good practice to make sure all errors have a message
+          // or the user may not know what's wrong
+        }
+      }
+    </script>
+
+
+  </body>
+</html>

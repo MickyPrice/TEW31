@@ -1,0 +1,116 @@
+<h1>What are we building?</h1>
+<p>
+  We're going to build a dice roller.
+  The roller will take a few inputs. There will be 1 input that will decide the highest value allowed to be rolled.<br><br>
+  There will be an output section that will display the number rolled by the die.<br><br>
+  And finally, there will be a roll dice button. This button will run the function to generate the random number.
+</p>
+
+
+<h2>How do I actually make the JavaScript run on the website?</h2>
+<p>
+  So, I'm going to assume you know HTML and CSS, your HTML file will be laid out like below:
+  <code>
+&lt;div&gt;
+
+  &lt;input type="number" id="max" value="6" placeholder="Max dice number"&gt;
+  &lt;br&gt;
+  &lt;span&gt;
+    Your dice rolled:
+    &lt;span id="output"&gt;&lt;/span&gt;
+  &lt;/span&gt;
+
+  &lt;br&gt;
+  &lt;button onclick="roll()"&gt;Roll dice&lt;/button&gt;
+
+
+&lt;/div&gt;
+  </code>
+  The code above will generate a screen that looks like this
+  <img src="/assets/img/lessonImages/build1/app.PNG" draggable="false" class="mt-4 shadow-lg rounded" style="max-width:222px;" alt="">
+  After this step you could choose to glam it up with CSS but for this example, I won't bother.
+</p>
+
+<h2>Adding the JavaScript</h2>
+<p>
+  This little app looks like it works but you'll find it actually doesn't do anything when it's clicked. This is because we haven't attached the JavaScript.
+  For this example, we will use <i>inline JS</i>, this uses &lt;script&gt; tags, they work much like &lt;style&gt; tags except instead of holding CSS code, they hold JavaScript code.
+</p>
+
+<p>
+  Another way to link JavaScript is by using an external file, to do this you still use a script tag, you do it like this:
+  <code>
+ &lt;script src="linkto/file.js"&gt;&lt;/script&gt;
+  </code>
+  much like a CSS link tag, the only difference is you should load the JavaScript files just before the body tag closes, not in the head tag.<br>
+  The same goes for inline js, it should go before the body tag ends.
+</p>
+
+<h1>Just one more thing:</h1>
+<p>
+  Now, feel free to try create the app, feel free to google stuff. Even professional programmers google every day<br>
+  You may wish to know how to generate random numbers?  To do this, simply use this code:
+  <code>Math.floor(Math.random() * 20)</code>
+  The 20 in the code above is the max number. That code will generate a random number from 0 to 20
+</p>
+
+
+
+
+
+
+
+<h1>Need some help? Click the buttons below if you wish</h1>
+<button type="button" class="bg-green-light p-2 inline-block mt-4 text-white rounded shadow" onclick="document.getElementById('actualcode').classList.add('hidden');document.getElementById('psudocode').classList.remove('hidden');">Show Psudo Code</button>
+<button type="button" class="bg-green-light p-2 inline-block mt-4 text-white rounded shadow" onclick="document.getElementById('psudocode').classList.add('hidden');document.getElementById('actualcode').classList.remove('hidden');">Show actual code</button>
+<button type="button" class="bg-orange-light p-2 inline-block mt-4 text-white rounded shadow" onclick="document.getElementById('actualcode').classList.add('hidden');document.getElementById('psudocode').classList.add('hidden');">Hide</button>
+
+<div class="tabs">
+
+  <div id="psudocode" class="hidden rounded shadow border-l-4 border-blue px-4 bg-blue-light text-white pb-2">
+    <h1 class="text-xl pt-2">Psudo code</h1>
+    <span class="text-md mt-1 italic block">
+      This is an english outline of how you could write your code.
+    </span>
+    <p class="text-white">
+      <ul>
+        <li>Create a function called "roll()"</li>
+        <li>In this function, make a variable that stores the max value (set by the user in that input)</li>
+        <li>Then use an if statment that detects if this variable is set</li>
+        <li>if it isn't, do nothing (Or you can send the user a error message that tells them that they need to fill out the field)</li>
+        <li>If it is, create a variable that stores the randomly generated number (with a max of what the user put into the input)</li>
+        <li>Then display this generated number on the screen.</li>
+      </ul>
+    </p>
+  </div>
+
+  <div id="actualcode" class="hidden rounded shadow border-l-4 border-blue px-4 bg-blue-light text-white">
+    <h1 class="text-xl pt-2">Actual code</h1>
+    <span class="text-md mt-1 italic block">
+      This code is the actual code you can use to make the app work.<br>
+      You don't have to do it exactly the same, this task can be done in a few different ways, just like all code.
+    </span>
+
+    <code>
+  function roll() {
+    var max = document.getElementById('max').value;
+    if (max) {
+      var generatedNumber = Math.floor(Math.random() * max);
+      document.getElementById('output').innerText = generatedNumber;
+    }else {
+      // This is where you could tell the user the error.
+      // For this example, I'll just do nothing.
+
+      // It's good practice to make sure all errors have a message
+      // or the user may not know what's wrong
+    }
+  }
+    </code>
+
+  </div>
+
+</div>
+
+<br><br><br><br><br>
+<a href="/assets/downloads/dice.html" target="_blank">Here's an example of how it should look/work</a>
+<a href="/assets/downloads/dice.html" download target="_blank">Here's a download of the code.</a>
