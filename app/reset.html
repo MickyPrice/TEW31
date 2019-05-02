@@ -63,15 +63,9 @@
           </label>
           <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" app-identifier="login-username" placeholder="john@example.com">
         </div>
-        <div class="mb-6">
-          <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
-            Password
-          </label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" app-identifier="login-password" placeholder="••••••••••••••••••">
-        </div>
         <div class="flex items-center justify-between">
           <button app-identifier="login-submit" class="bg-blue hover:bg-blue-dark border-b-4 border-blue-dark hover:border-blue-darker text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-            Sign In
+            Reset Password
           </button>
         </div>
         <p class="text-red text-xs italic mt-2 hidden" app-identifier="login-fail">Failed to login</p>
@@ -99,7 +93,13 @@
   <script src="../../assets/js/Firebase.js" charset="utf-8"></script>
   <script src="../../assets/js/login.js" charset="utf-8"></script>
 
-
+  <script type="text/javascript">  
+    firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
+      // Email sent.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  </script>
 
 </body>
 </html>

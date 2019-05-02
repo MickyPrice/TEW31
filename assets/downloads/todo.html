@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Todo List</title>
+
+    <style media="screen">
+      /* Optional Styling */
+      body{background:#2a2a2a;color:#FFF}
+      #list div{
+        background-color:white;
+        margin-top:10px;
+        color:#000;
+        padding:10px;
+      }
+      #list div button{
+        color:red;
+        border:none;
+        background:none;
+      }
+
+      .w-1\/7{width:14%}
+    </style>
+
+  </head>
+  <body>
+
+    <input type="text" placeholder="Todo list item here" id="input">
+    <button type="button" name="button" onclick="add()">Add</button>
+
+    <h1>Todo List:</h1>
+    <div id="list">
+      <!-- This is where the list goes -->
+    </div>
+
+
+
+    <script type="text/javascript">
+      // Function is triggered by the add button
+      function add(){
+        // Set up variables
+        var todoInput = document.getElementById('input').value;
+
+        // Check if username & comment is set
+        // && means and, basically, this means if comment and username is set
+        if (todoInput) {
+          // Create an element to put on the page
+          var todoContainer = document.createElement('div');
+          var todoCloseBtn = document.createElement('button');
+          var todoText = document.createElement('span');
+          // Set the content of the the button and the todo list text
+          todoCloseBtn.innerHTML = "&cross;"; // This needs to be innerHTML because "&cross;" is an HTML entity that makes a cross (✗) symbol.
+          todoText.innerText = todoInput;
+
+          // Now, we need to make it so the cross deletes the div.
+          // To do this, we'll add an event listener to it.
+          // NOTE: this.parentNode.remove(); gets the element that was clicked and finds it's parent element, then it removes it (and all it's children)
+          todoCloseBtn.setAttribute('onclick', 'this.parentNode.remove();')
+
+          // Put the button and text into the container div
+          todoContainer.appendChild(todoCloseBtn);
+          todoContainer.appendChild(todoText);
+          // add the comment element on to the page
+          document.getElementById('list').prepend(todoContainer)
+        }else {
+          // Alert makes a popup on the screen that says the value of the arguments.
+          alert("Please fill out the inputs")
+        }
+      }
+    </script>
+
+
+  </body>
+</html>
