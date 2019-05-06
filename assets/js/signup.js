@@ -15,9 +15,9 @@ findIdentifier('signup-signup').addEventListener('click', function() {
 })
 
 
-// firebase.auth().onAuthStateChanged(function(user) {
-//   if (user) {
-//     // User is signed in.
-//     window.location = "../app"
-//   }
-// })
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    window.location = "../app"
+  }
+})
