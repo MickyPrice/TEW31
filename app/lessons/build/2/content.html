@@ -1,0 +1,153 @@
+<h1>What are we building?</h1>
+<p>
+  In this lesson, we're going to build a simple TODO list. The list is going to be super basic, it won't even save the entries if the page is reloaded.<br>
+  This should teach about creating elements, appending them and prepending them.<br>
+  The page will have one input that is where the user puts in the thing they need to do and it will have a button to add this.
+</p>
+
+
+<h2>How do I actually make the JavaScript run on the website?</h2>
+<p>
+  So, like the other lessons, I'm going to assume you know HTML and CSS, your HTML file will be laid out like below:
+  <code>
+&lt;input type="text" placeholder="Todo list item here" id="input"&gt;
+&lt;button type="button" name="button" onclick="add()"&gt;Add&lt;/button&gt;
+
+&lt;h1&gt;Todo List:&lt;/h1&gt;
+&lt;div id="list"&gt;
+  &lt;!-- This is where the list goes --&gt;
+&lt;/div&gt;
+  </code>
+  The code above will generate a screen that looks like this
+  <img src="/assets/img/lessonImages/build2/AK901-K1Kj-wW925-SA.PNG" draggable="false" class="mt-4 shadow-lg rounded" style="max-width:333px;" alt="">
+  After this step you could choose to glam it up with CSS but for this example, In the version at the bottom of this lesson, you'll see I made a few small changes to the CSS to make it prettier, this is optional.
+</p>
+
+<h2>Adding the JavaScript</h2>
+<p>
+  This app looks like it works but you'll find it actually doesn't do anything when it's clicked. This is because we haven't attached the JavaScript.
+  For this example, we will use <i>inline JS</i>, this uses &lt;script&gt; tags, they work much like &lt;style&gt; tags except instead of holding CSS code, they hold JavaScript code.
+</p>
+
+<p>
+  Another way to link JavaScript is by using an external file, to do this you still use a script tag, you do it like this:
+  <code>
+ &lt;script src="linkto/file.js"&gt;&lt;/script&gt;
+  </code>
+  much like a CSS link tag, the only difference is you should load the JavaScript files just before the body tag closes, not in the head tag.<br>
+  The same goes for inline js, it should go before the body tag ends.
+</p>
+
+<h1>Just one more thing:</h1>
+<p>
+  Now, feel free to try create the app, feel free to google stuff. Even professional programmers google every day<br>
+  You may wish to know how to remove a parent node? To do this, simply use this code:
+  <code>ELEMENT.parentNode.remove()</code>
+  In the above code, it will delete ELEMENT's parent element.
+  <br>
+  For example,
+  <code>
+&lt;div class="I-want-to-delete-this"&gt;
+  &lt;span id="span"&gt;I wanna delete this element's parent&lt;/span&gt;
+&lt;/div&gt;
+  </code>
+  say I wanted to delete the element with the class "I-want-to-delete-this", I'd run this JavaScript code:
+  <code>
+document.getElementById('span').parentNode.remove()
+  </code>
+</p>
+
+
+
+
+
+
+
+<h1>Need some help? Click the buttons below if you wish</h1>
+<button type="button" class="bg-green-light p-2 inline-block mt-4 text-white rounded shadow" onclick="document.getElementById('actualcode').classList.add('hidden');document.getElementById('psudocode').classList.remove('hidden');">Show Psudo Code</button>
+<button type="button" class="bg-green-light p-2 inline-block mt-4 text-white rounded shadow" onclick="document.getElementById('psudocode').classList.add('hidden');document.getElementById('actualcode').classList.remove('hidden');">Show actual code</button>
+<button type="button" class="bg-orange-light p-2 inline-block mt-4 text-white rounded shadow" onclick="document.getElementById('actualcode').classList.add('hidden');document.getElementById('psudocode').classList.add('hidden');">Hide</button>
+
+<div class="tabs">
+
+  <div id="psudocode" class="hidden rounded shadow border-l-4 border-blue px-4 bg-blue-light text-white pb-2">
+    <h1 class="text-xl pt-2">Psudo code</h1>
+    <span class="text-md mt-1 italic block">
+      This is an english outline of how you could write your code.
+    </span>
+    <p class="text-white">
+      <ul>
+        <li>Create a function called "add()"</li>
+        <li>Make a variable that stores the value of the input (the input that holds the text the user has written)</li>
+        <li>Create an if statment that will detect if there is text inside the input.</li>
+        <li>if there isn't any text inside the input, alert the user that they need to fill it out</li>
+        <li>If there is text in the input, continue (below)</li>
+        <li>Create 3 variables:</li>
+        <li>one that creates a div - this will be the container for the todo element that will be added to the page</li>
+        <li>one that creates a button - this will be the "done" or "remove" button for the todo item</li>
+        <li>one will be a span - this will simply hold the text the user placed in the input</li>
+        <hr>
+        <li>Now we'll set the innerHTML of the button to "&amp;cross;", &amp;cross; is an HTML entity, it looks like &cross;</li>
+        <li>Then set the innerText of the span to the text the user put into the input</li>
+        <hr>
+          <li>Now we're going to do something a little weird, we're going to set an attribute on the button that deletes the container element.</li>
+          <i>(If you wish to figure this out by yourself, feel free to but I'll show the code in the line below)</i>
+          <code>ELEMENT.setAttribute('onclick', 'this.parentNode.remove();')</code>
+          <i>Replace ELEMENT with your variable that created the button div.</i>
+        <hr>
+        <li>After that, we'll append the button to the container element</li>
+        <li>Then, we'll append the span onto into the container</li>
+        <hr>
+        <li>Finally, we'll prepend the container element onto the web page (If you copied the HTML I wrote, this will be the element with the "list" ID)</li>
+      </ul>
+    </p>
+  </div>
+
+  <div id="actualcode" class="hidden rounded shadow border-l-4 border-blue px-4 bg-blue-light text-white">
+    <h1 class="text-xl pt-2">Actual code</h1>
+    <span class="text-md mt-1 italic block">
+      This code is the actual code you can use to make the app work.<br>
+      You don't have to do it exactly the same, this task can be done in a few different ways, just like all code.
+    </span>
+
+    <code>
+  // Function is triggered by the add button
+  function add(){
+    // Set up variables
+    var todoInput = document.getElementById('input').value;
+
+    // Check if username & comment is set
+    // && means and, basically, this means if comment and username is set
+    if (todoInput) {
+      // Create an element to put on the page
+      var todoContainer = document.createElement('div');
+      var todoCloseBtn = document.createElement('button');
+      var todoText = document.createElement('span');
+      // Set the content of the the button and the todo list text
+      todoCloseBtn.innerHTML = "&amp;cross;"; // This needs to be innerHTML because "&amp;cross;" is an HTML entity that makes a cross (✗) symbol.
+      todoText.innerText = todoInput;
+
+      // Now, we need to make it so the cross deletes the div.
+      // To do this, we'll add an event listener to it.
+      // NOTE: this.parentNode.remove(); gets the element that was clicked and finds it's parent element, then it removes it (and all it's children)
+      todoCloseBtn.setAttribute('onclick', 'this.parentNode.remove();')
+
+      // Put the button and text into the container div
+      todoContainer.appendChild(todoCloseBtn);
+      todoContainer.appendChild(todoText);
+      // add the comment element on to the page
+      document.getElementById('list').prepend(todoContainer)
+    }else {
+      // Alert makes a popup on the screen that says the value of the arguments.
+      alert("Please fill out the inputs")
+    }
+  }
+    </code>
+
+  </div>
+
+</div>
+
+<br><br><br><br><br>
+<a href="/assets/downloads/todo.html" target="_blank">Here's an example of how it should look/work</a>
+<a href="/assets/downloads/todo.html" download target="_blank">Here's a download of the code.</a>

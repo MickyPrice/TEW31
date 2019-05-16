@@ -41,6 +41,7 @@ function createCardElement(id, title, content, date) {
   // Add the id so that it can be called apon later
   element.setAttribute('id', id);
   // Set the innerHTML
+  content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
   var data = `<button class="text-red float-right" onclick="deleteNote('${id}')"><i class="fas fa-2x fa-times"></i></button><h1>${title}</h1><p>${content}</p>`
   element.innerHTML = data;
   // Add the element to the page

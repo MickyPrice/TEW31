@@ -15,7 +15,7 @@
 
   <!-- Stylesheets -->
   <!-- TailwindCSS - A utility-first CSS framework for rapidly building custom user interfaces. -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+  <link href="/assets/css/tailwind.css" rel="stylesheet">
   <!-- FontAwesome - For all the pretty icons -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- Global CSS sheet - Full of responsive code, styling and all that good stuff -->
@@ -93,7 +93,7 @@
   <script src="../../assets/js/Firebase.js" charset="utf-8"></script>
   <script src="../../assets/js/login.js" charset="utf-8"></script>
 
-  <script type="text/javascript">  
+  <script type="text/javascript">
     firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
       // Email sent.
     }).catch(function(error) {

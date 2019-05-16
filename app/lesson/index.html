@@ -14,7 +14,7 @@
 
   <!-- Stylesheets -->
   <!-- TailwindCSS - A utility-first CSS framework for rapidly building custom user interfaces. -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+  <link href="/assets/css/tailwind.css" rel="stylesheet">
   <!-- FontAwesome - For all the pretty icons -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- Global CSS sheet - Full of responsive code, styling and all that good stuff -->
@@ -76,6 +76,7 @@
       div[app-identifier="lessonContent"] h1, div[app-identifier="lessonContent"] h2, div[app-identifier="lessonContent"] h3,div[app-identifier="lessonContent"] h4{
         margin-top:40px;
         font-family: 'Bitter', cursive;
+        padding-bottom: 15px;
       }
       div[app-identifier="lessonContent"] a{
         background-color:#51d88a;
@@ -123,10 +124,23 @@
   </div>
 
 
-
+  <div class="bg-blue-light rounded shadow-lg px-3 py-2 w-64 fixed pin-l pin-b mb-24 hidden" id="next-lesson-tip2">
+    <div class="flex justify-between">
+      <h1 class="text-blue-darkest text-xl mb-2"><i class="fas fa-info-circle"></i>TIP</h1>
+      <button onclick="this.parentNode.parentNode.remove()" class="bg-transparent border-none text-red font-bold pb-2 text-xl pr-2"><i class="fas fa-times"></i></button>
+    </div>
+    <p>Use this button to see the previous lesson</p>
+  </div>
   <a app-identifier="prev" onclick="setTimeout(function () {location.reload()}, 100);" class="fixed pin-l text-center pt-6 shadow-lg w-16 h-16 text-white no-underline rounded-full bg-green pin-b mb-8 ml-4" href="#">
     <i class="fas fa-chevron-left fa-fw fa-lg"></i>
   </a>
+  <div class="bg-blue-light rounded shadow-lg px-3 py-2 w-64 fixed pin-r pin-b mb-24 hidden" id="next-lesson-tip">
+    <div class="flex justify-between">
+      <h1 class="text-blue-darkest text-xl mb-2"><i class="fas fa-info-circle"></i>TIP</h1>
+      <button onclick="this.parentNode.parentNode.remove()" class="bg-transparent border-none text-red font-bold pb-2 text-xl pr-2"><i class="fas fa-times"></i></button>
+    </div>
+    <p>Use this button to see the next lesson</p>
+  </div>
   <a app-identifier="next" onclick="setTimeout(function () {location.reload()}, 100);" class="fixed pin-r text-center pt-6 shadow-lg w-16 h-16 text-white no-underline rounded-full bg-green pin-b mb-8 mr-4" href="#">
     <i class="fas fa-chevron-right fa-fw fa-lg"></i>
   </a>

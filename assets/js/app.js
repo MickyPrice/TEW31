@@ -34,6 +34,9 @@ function loadLesson(lessonID) {
         findIdentifier('next').href = `#${data.next}`;
         findIdentifier('next').classList.remove('hidden')
         findIdentifier('next').style.display = "block"
+        if (data.next === "/getting-started/2") {
+          document.getElementById('next-lesson-tip').classList.remove('hidden')
+        }
       }else {
         findIdentifier('next').style.display = "none"
       }
@@ -41,6 +44,9 @@ function loadLesson(lessonID) {
         findIdentifier('prev').href = `#${data.prev}`;
         findIdentifier('prev').classList.remove('hidden')
         findIdentifier('prev').style.display = "block"
+        if (data.prev === "/getting-started/1") {
+          document.getElementById('next-lesson-tip2').classList.remove('hidden')
+        }
       }else {
         findIdentifier('prev').style.display = "none"
       }
